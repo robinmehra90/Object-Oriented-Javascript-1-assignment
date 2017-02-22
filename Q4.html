@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<script type="text/javascript">
+		(function() {
+   //length property
+   alert("length property");
+
+   function lengthArgument() {
+       alert("length of the passed argument is " + arguments.length);
+   }
+   lengthArgument(1, 2, 3, 4, 5);
+
+   //Iterator property
+   alert("Iterator property");
+
+   function argumentsIterator() {
+       for (var a in arguments) {
+           alert("Passed argument is : " + arguments[a]);
+       }
+   }
+   argumentsIterator('a', 'b', 'c', 'd');
+
+   //arguments Callee
+   alert("arguments callee property");
+
+   function argumentCallee() {
+       return function(n) {
+           if (n <= 1)
+               return 1;
+           return n * arguments.callee(n - 1);
+       };
+   }
+   alert("Caller property:  " + argumentCallee()(4));
+})();
+	</script>
+</head>
+<body>
+<p>arguments.callee<br>
+Reference to the currently executing function.<br><br>
+arguments.caller <br>
+Reference to the function that invoked the currently executing function.<br><br>
+arguments.length<br>
+Reference to the number of arguments passed to the function.
+</p>
+<p><h1>Check script code</h1></p>
+</body>
+</html>

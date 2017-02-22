@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<script type="text/javascript">
+	(function() {
+   function Person(name, contact) {
+       this.name = name;
+       this.contact = contact;
+   }
+
+   function Employee(id, dept) {
+       this.id = id;
+       this.dept = dept;
+   }
+
+   function Developer(lang, project) {
+       this.lang = lang;
+       this.project = project;
+   }
+
+   Employee.prototype = new Person();
+   Employee.prototype.constructor = Employee;
+
+   Developer.prototype = new Employee();
+   Developer.prototype.constructor = Developer;
+
+   var dev=new Developer();
+   
+   dev.name=prompt("Enter name","");
+   dev.contact=prompt("Enter contact","");
+   dev.id=prompt("Enter id","");
+   dev.dept=prompt("Enter department","");
+   dev.lang=prompt("Enter language","");
+   dev.project=prompt("Enter project","");
+
+   console.log("Name : "+dev.name);
+   console.log("Contact : "+dev.contact);
+   console.log("ID : "+dev.id);
+   console.log("Department : "+dev.dept);
+   console.log("Language : "+dev.lang);
+   console.log("Project : "+dev.project);
+
+})();
+</script>
+<body>
+<p><h1>Open Console</h1></p>
+</body>
+</html>

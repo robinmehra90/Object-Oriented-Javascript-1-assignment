@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Bind and Call</title>
+	<script type="">
+		//call example
+
+		var p1 = {firstName: 'Robin', lastName: 'Mehra'};
+		var p2 = {firstName: 'Akhil', lastName: 'rawat'};
+ 
+		function say(greeting) {
+   	 		console.log(greeting + ' ' + this.firstName + ' ' + this.lastName);
+		}
+ 
+		say.call(p1, 'Hello'); 
+		say.call(p2, 'Hello'); 
+	</script>
+
+	<script type="text/javascript">
+		
+		//Bind example
+		
+		var p1={firstName:'Robin',lastName:'Mehra'};
+		var p2={firstName:'Akhil',lastName:'Rawat'};
+
+		function say(){
+			console.log('Hello '+this.firstName+' '+this.lastName);
+		}
+		
+		var sayHelloRob=say.bind(p1);
+		var sayHelloAkhil=say.bind(p2);
+
+		sayHelloRob();
+		sayHelloAkhil();
+
+	</script>
+</head>
+<body>
+<div>
+	<p>
+		Call invokes the function and allows you to pass in arguments one by one.34<br>
+Bind returns a new function, allowing you to pass in a this array and any number of arguments.
+	</p>
+	<p>
+		Call lets you send multiple arguments seperated by comma.call executes the current function immediately<br><br>
+		Bind is a bit different.it returns a new function.We can  use it for events like onClick where we don’t know when they’ll be fired but we know what context we want them to have.
+
+	</p>
+	<p><h1>Open Console to see the output of both call and bind functions</h1></p>
+</div>
+</body>
+</html>
